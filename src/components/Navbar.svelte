@@ -12,7 +12,7 @@
   <nav class="bg-blue-500 text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
       <!-- Left-aligned logo -->
-      <h1 class="text-xl font-bold">Michaels Procurements</h1>
+      <h1 class="text-xl font-bold">MDS Procurements</h1>
   
       <!-- Right-aligned links and logout button -->
       <div class="flex items-center space-x-6">
