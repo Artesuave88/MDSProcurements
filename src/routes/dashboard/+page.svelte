@@ -10,11 +10,11 @@
     { name: "Organic Ground Coffee Beans", category: "Beverages", price: "£40 per 2.5 kg", stock: 200, imageUrl: "https://via.placeholder.com/200" },
     { name: "Premium Olive Oil", category: "Pantry Essentials", price: "£25 per 4 kg", stock: 100, imageUrl: "https://via.placeholder.com/200" },
     { name: "Frozen Atlantic Salmon Fillets", category: "Seafood", price: "£100 per 4.5 kg pack", stock: 75, imageUrl: "https://via.placeholder.com/200" },
-    { name: "Mixed Salad Greens", category: "Produce", price: "£15 per 1 kg bag", stock: 150, imageUrl: "https://via.placeholder.com/200" },
+    { name: "Mixed Salad Greens", category: "Produce", price: "£15 per 1 kg bag", stock: 28, imageUrl: "https://via.placeholder.com/200" },
     { name: "Bottled Sparkling Water", category: "Beverages", price: "£12 per case of 24 x 500 ml bottles", stock: 300, imageUrl: "https://via.placeholder.com/200" },
     { name: "Assorted Bread Rolls", category: "Bakery", price: "£18 per dozen", stock: 100, imageUrl: "https://via.placeholder.com/200" },
-    { name: "Imported Cheese Selection", category: "Dairy", price: "£60 per 2.5 kg assortment", stock: 60, imageUrl: "https://via.placeholder.com/200" },
-    { name: "Bulk Chicken Breast Fillets", category: "Poultry", price: "£80 per 4 kg pack", stock: 120, imageUrl: "https://via.placeholder.com/200" },
+    { name: "Imported Cheese Selection", category: "Dairy", price: "£60 per 2.5 kg assortment", stock: 10, imageUrl: "https://via.placeholder.com/200" },
+    { name: "Bulk Chicken Breast Fillets", category: "Poultry", price: "£80 per 4 kg pack", stock: 0, imageUrl: "https://via.placeholder.com/200" },
   ];
 
   onMount(() => {
@@ -58,14 +58,18 @@
 
     <!-- Product Overview Section -->
     <div class="bg-white p-6 rounded-lg shadow-md">
-      <h2 class="text-xl font-semibold mb-4">Product Overview</h2>
+      <h2 class="text-xl font-semibold mb-4">Products for you</h2>
       <div class="space-y-4">
         {#each products as product}
           <div class="flex justify-between items-center">
             <span>{product.name}</span>
-            <span class="text-sm {product.stock > 50 ? 'text-green-600' : (product.stock > 20 ? 'text-yellow-500' : 'text-red-600')}">
+            {#if product.stock > 0}
+              <span class="text-sm {product.stock > 50 ? 'text-green-600' : (product.stock > 20 ? 'text-yellow-500' : 'text-red-600')}">
               In Stock: {product.stock}
             </span>
+            {:else}
+              <span class="text-sm text-red-600">Out of Stock</span>
+            {/if}
           </div>
         {/each}
       </div>
