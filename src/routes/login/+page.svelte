@@ -23,7 +23,7 @@
       isSubmitting = true;
     
       // Mock login validation
-      if (email === 'michaeldstevenson1@outlook.com' && password === 'password123') {
+      if (email === 'michaeldstevenson1@outlook.com' || email === 'ambrinkworth@gmail.com' && password === 'password123') {
         isAuthenticated.set(true);
         goto('/dashboard');
       } else {
