@@ -7,6 +7,8 @@
       isAuthenticated.set(false); // Update the authentication state
       goto('/'); // Redirect back to the login page
     }
+    let basketCount = 0; // Example count, you can replace this with actual data
+
   </script>
   
   <nav class="bg-blue-500 text-white p-4">
@@ -22,6 +24,10 @@
         <a href="/suppliers" class="hover:text-gray-200">Suppliers</a>
         <a href="/orders" class="hover:text-gray-200">Orders</a>
         <a href="/contact" class="hover:text-gray-200">Contact Us</a>
+        <div class="basket flex items-center space-x-2">
+          <span>Basket</span>
+          <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs">{basketCount}</span>
+        </div>
   
         {#if $isAuthenticated}
           <button

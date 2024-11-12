@@ -32,6 +32,20 @@ let products = [
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    // Basket to store added products
+    /**
+   * @type {any[]}
+   */
+    let basket = [];
+
+    // Function to add product to basket
+    /**
+   * @param {{ name: string; category: string; price: string; stock: number; imageUrl: string; }} product
+   */
+    function addToBasket(product) {
+      basket = [...basket, product];
+    }
     
     import Navbar from '../../components/Navbar.svelte';
   </script>
@@ -61,9 +75,14 @@ let products = [
             <p class="text-sm text-gray-500">{product.category}</p>
             <p class="text-lg font-semibold text-blue-500 mt-2">{product.price}</p>
             <p class="text-sm text-gray-400">Stock: {product.stock}</p>
+            <button
+              class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+              on:click={() => addToBasket(product)}
+            >
+              Add to basket
+            </button>
           </div>
         {/each}
       </div>
     </div>
   </div>
-  
